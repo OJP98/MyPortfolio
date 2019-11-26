@@ -1,20 +1,109 @@
+$dark-blue: #1b2a49;
+$grey-blue: #465881;
+$light-blue: #00909e;
+$grey: #c9d1d3;
+$light-red: #f73859;
+$greyish-blue: #dbedf3;
+$light-grey: #eeeeee;
 html,
 body,
 #root,
-.bg,
-canvas {
+.bg {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
 }
 
+html,
+body,
+section,
+.content {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+canvas {
+    height: 100%;
+    min-height: 100%;
+    display: block;
+    vertical-align: bottom;
+    z-index: 1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #00909e 0%, #1b2a49 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.WholeScreen {
+    width: 100%;
+    height: 100%;
+}
+
+.BGLogo {
+    position: fixed;
+    background-image: url(../resources/images/logo.png);
+    background-size: 40%;
+    background-position: 50% 35%;
+    background-repeat: no-repeat;
+    animation-name: floating;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0px, 2%);
+    }
+    to {
+        transform: translate(0px, -0px);
+    }
+}
+
 .Navbar {
     position: fixed;
     top: 0;
-    z-index: 3;
+    z-index: 10;
     width: 100%;
     height: 4.5em;
+    background-color: transparent;
     overflow: hidden;
-    background: #ffc115;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: background-color 1s ease 0s;
+    color: transparent;
 }
+
+.Navbar a {
+    color: #c9d1d3;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.Navbar a:hover {
+    color: white;
+    transition: 1s;
+}
+
+.AboutMe {}
