@@ -4,6 +4,7 @@ import './main.scss'
 import Navbar from './Navbar/Navbar'
 import Intro from './Intro/Intro'
 import AboutMe from './Screens/AboutMe'
+import RecentAchievements from './Screens/RecentAchievements';
 
 class App extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class App extends React.Component {
 
         this.state = {
             currentHeight: window.innerHeight,
+            opacity: 1
         }
     }
 
@@ -21,21 +23,27 @@ class App extends React.Component {
     render() {
         return (
            <div>
-                <Navbar />
                 <div className="content">
-                <Intro currentHeight={this.state.currentHeight}/>
+                <Intro currentHeight={this.state.currentHeight} opacity={this.state.opacity}/>
                 <AboutMe />
+                <RecentAchievements />
                </div>
            </div>
         )
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.updateSize.bind(this));
+        window.addEventListener('resize', this.updateSize.bind(this))
+
+        window.onscroll = () => {
+
+            let opacity = 1 - (window.pageYOffset / 325)
+            this.setState({ opacity: opacity })
+        }
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateSize.bind(this));
+        window.removeEventListener('resize', this.updateSize.bind(this))
     }
 
 };

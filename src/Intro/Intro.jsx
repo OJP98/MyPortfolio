@@ -1,9 +1,9 @@
 import React from "react"
 import Particles from 'react-particles-js';
 
-const Intro = ({currentHeight}) => (
-    <div>
-        <div className="WholeScreen BGLogo"></div>
+const Intro = ({currentHeight, opacity}) => (
+    <div style={{ opacity: opacity }}>
+        <div className="WholeScreen BGLogo"/>
         <Particles
             params={{
                 "particles": {
