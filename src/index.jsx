@@ -5,6 +5,7 @@ import Navbar from './Navbar/Navbar'
 import Intro from './Intro/Intro'
 import AboutMe from './Screens/AboutMe'
 import RecentAchievements from './Screens/RecentAchievements';
+import Games from './Screens/Games';
 
 class App extends React.Component {
     constructor(props) {
@@ -26,6 +27,8 @@ class App extends React.Component {
                 <div className="content">
                 <Intro currentHeight={this.state.currentHeight} opacity={this.state.opacity}/>
                 <AboutMe />
+                <RecentAchievements />
+                <Games />
                 <RecentAchievements />
                </div>
            </div>
